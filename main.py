@@ -1,3 +1,5 @@
+#Aqui se presenta el codigo completo con el uso completo que se pidio en el proyecto 
+
 import tkinter as tk
 from tkinter import messagebox
 import random
