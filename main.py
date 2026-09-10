@@ -14,7 +14,7 @@ class Resistencia:
 
     def obtener_colores(self, valor):
         valor_str = str(valor)
-        if len(valor_str) < 2:
+        if len(valor_str) <= 2:
             return None, None
             
         digito1 = int(valor_str[0])
