@@ -4,7 +4,7 @@ import random
 
 class Resistencia:
     def __init__(self):
-        # Arreglos de colores según la tabla proporcionada
+        # Arreglos de colores 
         self.colores = ["Negro", "Marrón", "Rojo", "Naranja", "Amarillo", 
                         "Verde", "Azul", "Violeta", "Gris", "Blanco"]
         self.codigos_hex = ["#000000", "#8B4513", "#FF0000", "#FFA500", "#FFFF00", 
@@ -28,7 +28,7 @@ class Resistencia:
         return nombres, hexa
 
     def generar_resistencias_aleatorias(self, n):
-        # Genera 'n' resistencias con valores enteros aleatorios entre 10 y 1000000000
+        # Genera valor de resistencias aleatorias entre 10 y 100000000
         return [random.randint(10, 1000000000) for _ in range(n)]
 
     def sumar_serie(self, n):
@@ -40,12 +40,12 @@ class Resistencia:
         inversas = sum([1/r for r in resistencias])
         return 1/inversas, resistencias
 
-# Interfaz Gráfica (Fase 4. Codificación)
+#Interfaz para la aplicacion
 def calcular_grafico():
     try:
         r = Resistencia()
         
-        # 1. Calcular Colores
+        #Calculo de colores
         valor_resistencia = int(entry_valor.get())
         nombres_colores, codigos_hex = r.obtener_colores(valor_resistencia)
         
@@ -57,7 +57,7 @@ def calcular_grafico():
         else:
             messagebox.showerror("Error", "Valor no válido para el cálculo básico de 3 bandas.")
 
-        # 2. Sumas en Serie y Paralelo
+        #Sumas en serie y paralelo
         n = int(entry_n.get())
         if n > 0:
             total_serie, res_serie = r.sumar_serie(n)
@@ -68,7 +68,7 @@ def calcular_grafico():
     except ValueError:
         messagebox.showerror("Error", "Por favor ingresa números válidos.")
 
-# Configuración de la ventana Tkinter
+#Tkinter
 root = tk.Tk()
 root.title("Proyecto Resistencia Eléctrica")
 root.geometry("400x450")
@@ -83,7 +83,7 @@ entry_n.pack(pady=5)
 
 tk.Button(root, text="Calcular", command=calcular_grafico).pack(pady=15)
 
-# Visualización gráfica de colores
+# Visualización de grafica de colores
 frame_colores = tk.Frame(root)
 frame_colores.pack(pady=10)
 
