@@ -22,12 +22,15 @@ def obtener_colores(self, valor):
     def generar_resistencias_aleatorias(self, n):
         # Genera valor de resistencias aleatorias entre 10 y 100000000
         return [random.randint(10, 1000000000) for _ in range(n)]
+#recibe cuantas resistencias quieres generar y cada repeticion se genera en un valor de entre 10 y 1000000000
 
     def sumar_serie(self, n):
         resistencias = self.generar_resistencias_aleatorias(n)
         return sum(resistencias), resistencias
+#llama a la funcion anterior para guardar esas resistencias y suma todos los valores del arreglo
 
     def sumar_paralelo(self, n):
         resistencias = self.generar_resistencias_aleatorias(n)
         inversas = sum([1/r for r in resistencias])
         return 1/inversas, resistencias
+#llama a la funcion anterior para guardar esas resistencias y suma todos los valores del arreglo
