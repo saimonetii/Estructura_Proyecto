@@ -1,5 +1,5 @@
 # Estructura_Proyecto
-Proyecto de estructura de datos
+Esta es la documentacion del proyecto de estructuras de datos que se entregara el 20 de septiembre del año 2026
 Este proyecto es una aplicacion grafica que permite determinar los colores de una resistencia y obtener las sumas de resistencias en serie y paralelos esto con ayuda de arreglos
 
 Este proyecto usa arreglos y listas para poder representar:
@@ -20,3 +20,4 @@ RTS: R1 + R2 + R3... + RN
 #la suma en paralelo
 Lo mismo que en la serie solo que con la diferencia es en la formula que es.
 RTP: 1/R1 + 1/R2 + 1/R3 + ... + 1/RN
+
