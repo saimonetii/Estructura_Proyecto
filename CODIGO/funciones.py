@@ -19,7 +19,7 @@ def obtener_colores(self, valor):
         return sum(resistencias)
     def sumar_paralelo(self, resistencias):
         return 1 / sum(1 / r for r in resistencias)
-            def calcular_grafico():
+def calcular_grafico():
     try:
         r = Resistencia()
         
