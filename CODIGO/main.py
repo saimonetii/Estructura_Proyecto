@@ -1,3 +1,5 @@
+
+
 import tkinter as tk
 from tkinter import messagebox
 import random
@@ -28,17 +30,15 @@ class Resistencia:
         return nombres, hexa
 
     def generar_resistencias_aleatorias(self, n):
-        # Genera valor de resistencias aleatorias entre 10 y 100000000
+    # Valores enteros aleatorios entre 10 y 1000000000
         return [random.randint(10, 1000000000) for _ in range(n)]
 
-    def sumar_serie(self, n):
-        resistencias = self.generar_resistencias_aleatorias(n)
-        return sum(resistencias), resistencias
+    def sumar_serie(self, resistencias):
+        return sum(resistencias)
 
-    def sumar_paralelo(self, n):
-        resistencias = self.generar_resistencias_aleatorias(n)
-        inversas = sum([1/r for r in resistencias])
-        return 1/inversas, resistencias
+    def sumar_paralelo(self, resistencias):
+    # Rtp = 1 / (1/R1 + 1/R2 + ... + 1/RN)
+        return 1 / sum(1 / r for r in resistencias)
 
 #Interfaz para la aplicacion
 def calcular_grafico():
@@ -60,11 +60,15 @@ def calcular_grafico():
         #Sumas en serie y paralelo
         n = int(entry_n.get())
         if n > 0:
-            total_serie, res_serie = r.sumar_serie(n)
-            total_paralelo, res_paralelo = r.sumar_paralelo(n)
+            resistencias = r.generar_resistencias_aleatorias(n)
+            total_serie = r.sumar_serie(resistencias)
+            total_paralelo = r.sumar_paralelo(resistencias)
             
-            resultado_sumas.config(text=f"Suma Serie: {total_serie} Ω\n"
-                                        f"Suma Paralelo: {total_paralelo:.4f} Ω")
+            resultado_sumas.config(text=f"Resistencias: {resistencias} Ω\n"
+                                        f"Suma Serie: {total_serie:,} Ω\n"
+                                        f"Suma paralelo: {total_paralelo:,.4f} Ω")
+        else:
+            messagebox.showerror("Error", "n debe ser mayor que 0.")
     except ValueError:
         messagebox.showerror("Error", "Por favor ingresa números válidos.")
 
